@@ -24,4 +24,4 @@ jobs:
         run: npm install --global insomnia-inso
 
       - name: Generate K8s Manifest
-        run: inso generate config openapi.json --type kubernetes --output bets-api.yaml
+        run: inso generate config apis/openapi.json --type kubernetes --output bets-api.yaml
