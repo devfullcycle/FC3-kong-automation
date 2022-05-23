@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  title: Bets - Bets API
+  version: 2.0.0
+servers:
+  - url: 'http://localhost:9999/api'
+    description: Development Environment
+  - url: 'http://bets.bets.svc.cluster.local:9999'
+    description: Kubernetes Environment
+paths:
+  /bets:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                homeTeamScore:
+                  type: string
+                awayTeamScore:
+                  type: string
+                championship:
+                  type: string
+                match:
+                  type: string
+                email:
+                  type: string
+      tags:
+        - bets
+      responses:
+        '201':
+          content:
+            application/json:
+              examples:
+                bet:
+                  value:
+                    match: 1X-DC
+                    email: joe@doe.com
+                    championship: Uefa Champions League
+                    awayTeamScore: '2'
+                    homeTeamScore: '3'
+          description: ''
+      operationId: create-bet
+      summary: Create Bet
