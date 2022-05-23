@@ -23,5 +23,8 @@ jobs:
       - name: Install dependencies
         run: npm install --global insomnia-inso
 
+      - name: Lint OpenAPI
+        run: inso lint spec apis/bets-api.yaml
+
       - name: Generate K8s Manifest
-        run: inso generate config apis/openapi.json --type kubernetes --output bets-api.yaml
+        run: inso generate config apis/bets-api.yaml --type kubernetes --output bets-api.yaml
