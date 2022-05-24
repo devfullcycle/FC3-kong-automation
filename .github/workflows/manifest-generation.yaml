@@ -1,12 +1,12 @@
-name: Bets API Full Cycle - Validation
+name: Bets API Full Cycle - Manifest Generation
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
 jobs:
-  validate-manifest:
+  generate-manifest:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: npm install --global insomnia-inso
 
-      - name: Lint OpenAPI
-        run: inso lint spec apis/bets-api.yaml
+      - name: Generate K8s Manifest
+        run: inso generate config apis/bets-api.yaml --type kubernetes --output bets-api-manifest.yaml
 
-      - name: Print OpenAPI
-        run: cat apis/bets-api.yaml
+      - name: Print Manifest
+        run: cat apis/bets-api-manifest.yaml
