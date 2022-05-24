@@ -22,3 +22,6 @@ jobs:
 
       - name: Lint OpenAPI
         run: inso lint spec apis/bets-api.yaml
+
+      - name: Print Configuration
+        run: cat apis/bets-api.yaml
