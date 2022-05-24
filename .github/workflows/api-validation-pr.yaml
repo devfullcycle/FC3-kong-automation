@@ -1,15 +1,12 @@
-name: Bets API Full Cycle
+name: Bets API Full Cycle - Validation
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
 
 jobs:
-  test:
+  validate-manifest:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -26,5 +23,5 @@ jobs:
       - name: Lint OpenAPI
         run: inso lint spec apis/bets-api.yaml
 
-      - name: Generate K8s Manifest
-        run: inso generate config apis/bets-api.yaml --type kubernetes --output bets-api.yaml
+      - name: Print OpenAPI
+        run: cat apis/bets-api.yaml
