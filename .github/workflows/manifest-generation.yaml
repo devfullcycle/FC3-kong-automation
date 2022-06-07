@@ -24,4 +24,4 @@ jobs:
         run: inso generate config apis/bets-api.yaml --type kubernetes --output bets-api-manifest.yaml
 
       - name: Print Manifest
-        run: cat apis/bets-api-manifest.yaml
+        run: cat bets-api-manifest.yaml
