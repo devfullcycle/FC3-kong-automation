@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    version: v1
+    app: bets
+  name: bets
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: bets
+  template:
+    metadata:
+      labels:
+        app: bets
+        version: v1
+        stack: echo
+        interface: rest
+        language: golang
+    spec:
+      containers:
+        - image: claudioed/bets:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: bets-config
+          resources:
+            requests:
+              memory: "5Mi"
+              cpu: "10m"
+            limits:
+              memory: "10Mi"
+              cpu: "20m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 9999
+              scheme: HTTP
+            initialDelaySeconds: 1
+          name: bets
+          ports:
+            - containerPort: 9999
+              name: http
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 9999
+              scheme: HTTP
+            initialDelaySeconds: 1

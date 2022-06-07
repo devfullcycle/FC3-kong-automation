@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bets-api
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+    konghq.com/override: do-not-preserve-host
+    #konghq.com/plugins: oidc-bets,rl-by-header,prometheus-bets
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /api/bets
+            pathType: Prefix
+            backend:
+              service:
+                name: bets
+                port:
+                  number: 9999

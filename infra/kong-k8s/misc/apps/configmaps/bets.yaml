@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bets-config
+data:
+  MATCH_SVC: "http://matches:9999/api/matches/a"
+  CHAMPIONSHIP_SVC: "http://championships:9999/api/championships/a"
+  PLAYER_SVC: "http://players:9999/api/players/a"

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    ingress.kubernetes.io/service-upstream : "true"
+  labels:
+    app: bets
+    stack: echo
+    interface: rest
+    language: golang
+  name: bets
+spec:
+  ports:
+    - name: http
+      port: 9999
+      protocol: TCP
+      targetPort: 9999
+  selector:
+    app: bets

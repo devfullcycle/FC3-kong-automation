@@ -1,0 +1,10 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: rl-by-header
+config:
+  minute: 5
+  limit_by: header
+  policy: local
+  header_name: X-Credential-Identifier
+plugin: rate-limiting

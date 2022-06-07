@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    version: v1
+    app: championships
+  name: championships
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: championships
+  template:
+    metadata:
+      labels:
+        app: championships
+        version: v1
+        stack: echo
+        interface: rest
+        language: golang
+    spec:
+      containers:
+        - image: claudioed/championships:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "5Mi"
+              cpu: "10m"
+            limits:
+              memory: "10Mi"
+              cpu: "20m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 9999
+              scheme: HTTP
+            initialDelaySeconds: 1
+          name: championships
+          ports:
+            - containerPort: 9999
+              name: http
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 9999
+              scheme: HTTP
+            initialDelaySeconds: 1
