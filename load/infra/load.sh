@@ -1,3 +1,3 @@
 #!/bin/bash
-kind create cluster --name kong-fc --config clusterconfig.yaml
-kubectl cluster-info --context kind-kong-fc
+kubectl testkube create test --file ../create_bet_load.js --type k6/script --name create-bet-load
+kubectl testkube run test create-bet-load -f
