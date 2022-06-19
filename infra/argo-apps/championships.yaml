@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: championships
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    path: deployments/championships
+    repoURL: https://github.com/claudioed/championships-app.git
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values-kong.yaml
+  destination:
+    namespace: bets
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

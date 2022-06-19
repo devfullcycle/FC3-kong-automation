@@ -21,6 +21,8 @@ admin:
     containerPort: 8001
   tls:
     parameters: []
+  labels:
+    enable-metrics: "true"
 
 postgresql:
   enabled: false
@@ -31,7 +33,13 @@ ingressController:
 
 podAnnotations:
   prometheus.io/scrape: "true"
-  prometheus.io/port: "9542"
+  prometheus.io/port: "8100"
 
 proxy:
   type: NodePort
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
