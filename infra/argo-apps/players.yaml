@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     path: deployments/players
-    repoURL: https://github.com/claudioed/players-app.git
+    repoURL: https://github.com/codeedu/fc-championships-app-players-app.git
     targetRevision: HEAD
     helm:
       valueFiles:

@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     path: deployments/bets
-    repoURL: https://github.com/claudioed/bets-app.git
+    repoURL: https://github.com/codeedu/fc-api-gateway-k8s-bets-app.git
     targetRevision: HEAD
     helm:
       valueFiles:

@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     path: deployments/championships
-    repoURL: https://github.com/claudioed/championships-app.git
+    repoURL: https://github.com/codeedu/fc-api-gateway-k8s-championships-app.git
     targetRevision: HEAD
     helm:
       valueFiles:

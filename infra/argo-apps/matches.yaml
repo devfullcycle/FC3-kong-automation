@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     path: deployments/matches
-    repoURL: https://github.com/claudioed/matches-app.git
+    repoURL: https://github.com/codeedu/fc-api-gateway-k8s-matches-app.git
     targetRevision: HEAD
     helm:
       valueFiles:
