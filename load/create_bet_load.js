@@ -2,16 +2,16 @@ import {check} from 'k6';
 import http from 'k6/http';
 
 const KONG_CLIENT = 'kong';
-const KONG_SECRET = 'g4isONaheW69prXcO4Fp5Kz6Azi6w5Km';
+const KONG_SECRET = 'ohSN0VS9Qtdi5KCLmkj52jGFU91FQJn2';
 const USER = 'maria';
 const PASS = 'maria';
 
 export const options = {
   stages: [
     { target: 0, duration: '10s' },
-    { target: 50, duration: '60s' },
-    { target: 100, duration: '60s' },
-    { target: 200, duration: '180s' },
+    { target: 5, duration: '60s' },
+    { target: 5, duration: '60s' },
+    { target: 5, duration: '180s' },
   ],
 };
 

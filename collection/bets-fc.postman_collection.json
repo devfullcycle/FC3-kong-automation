@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "d152541c-ad68-4581-bc35-6169e343d9e6",
+		"name": "bets-fc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-players",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/players/144954fe-b6c3-4a51-80d3-92911a06265c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"players",
+						"144954fe-b6c3-4a51-80d3-92911a06265c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-matches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/matches/144954fe-b6c3-4a51-80d3-92911a06265c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"matches",
+						"144954fe-b6c3-4a51-80d3-92911a06265c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-championships",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/championships/144954fe-b6c3-4a51-80d3-92911a06265c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"championships",
+						"144954fe-b6c3-4a51-80d3-92911a06265c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-bet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJrM1k5LTVWNFdGZ3pzV0FEVWxhdllIWFNKc2J5emMzanpPUEEwRHZkSUtFIn0.eyJleHAiOjE2NTg0MzMwMTAsImlhdCI6MTY1ODM5NzAxMCwianRpIjoiYWQwZDQ5NmEtNGFkMC00MzJmLThjNWYtM2NmN2JhMGJjZDQzIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrLmlhbS9yZWFsbXMvYmV0cyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJkNmNmM2NlNi1hYjQ1LTQxMzgtOTlkOS1jZTdkZjQ4OTRhMTEiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJrb25nIiwic2Vzc2lvbl9zdGF0ZSI6IjRiMGI1MzUyLTNhN2QtNGM3NS1iMmQ4LTA0NDAxMWJkNzlmMiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtYmV0cyJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI0YjBiNTM1Mi0zYTdkLTRjNzUtYjJkOC0wNDQwMTFiZDc5ZjIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6Im1hcmlhIn0.pidLHnUOaypQdZiq4j_c2zTH7C297MPAPeCxqh4_oO9-Kb55e8Co5BpDJtDNv7F5m2OPiQqef-dBB1JRxq7AGtW1vdQSy09QybB8wDB-tY2YyNDPnO6z-vxMi_5_jVB6V_3w1UxKj8gNASkeQNkA57Lh36vnlrzjmG863kcZxGzXzgTJxhDaCI2JYNy4UxfbyAmLTkvy8yNUh8OVj41oQsc8gOANbSZMn5VyaV0BXHHIkICygUKFumXpM5-1u6xgHVuH2oz_M3rd9Ow1mhqUE11tJwCNYhRi2gxqotUzDvFbdqr0zB7Tg2ECDO-FvB41VWoQCS2Gs8qXTY1tWrrjiw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"match\": \"1X-DC\",\n\t\"email\": \"joe@doe.com\",\n\t\"championship\": \"Uefa Champions League\",\n\t\"awayTeamScore\": \"2\",\n\t\"homeTeamScore\": \"3\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/api/bets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"bets"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
