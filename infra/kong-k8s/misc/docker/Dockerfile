@@ -9,6 +9,7 @@ ENV PACKAGES="openssl-devel kernel-headers gcc git openssh" \
 
 RUN set -ex \
     && apk --no-cache add libssl1.1 openssl curl unzip git \
+    && apk add --upgrade curl \
     && apk --no-cache add --virtual .build-dependencies \
     make \
     gcc \
@@ -27,7 +28,7 @@ RUN set -ex \
     sed -E -e 's/(tag =)[^,]+/\1 "master"/' -e "s/(lua-resty-openidc ~>)[^\"]+/\1 ${LUA_RESTY_OIDC_VER}/" > kong-oidc-${KONG_PLUGIN_OIDC_VER}.rockspec \
     && luarocks build kong-oidc-${KONG_PLUGIN_OIDC_VER}.rockspec \
     # Build kong-plugin-cookies-to-headers
-    && curl -sL https://raw.githubusercontent.com/revomatico/kong-plugin-cookies-to-headers/master/kong-plugin-cookies-to-headers-${KONG_PLUGIN_COOKIES_TO_HEADERS_VER}.rockspec > kong-plugin-cookies-to-headers-${KONG_PLUGIN_COOKIES_TO_HEADERS_VER}.rockspec \
+    && curl -sL https://raw.githubusercontent.com/pravin-raha/kong-plugin-cookies-to-headers/v${KONG_PLUGIN_COOKIES_TO_HEADERS_VER}/kong-plugin-cookies-to-headers-${KONG_PLUGIN_COOKIES_TO_HEADERS_VER}.rockspec > kong-plugin-cookies-to-headers-${KONG_PLUGIN_COOKIES_TO_HEADERS_VER}.rockspec \
     && luarocks build kong-plugin-cookies-to-headers-${KONG_PLUGIN_COOKIES_TO_HEADERS_VER}.rockspec \
     # Patch nginx_kong.lua for kong-oidc session_secret
     && TPL=${LUA_BASE_DIR}/kong/templates/nginx_kong.lua \
