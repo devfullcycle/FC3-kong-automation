@@ -5,8 +5,8 @@
 # kubectl port-forward deploy/your-deployment-kong 8001:8001
 
 image:
-  repository: claudioed/kong-oidc-jwt
-  tag: latest
+  repository: ghcr.io/devfullcycle/fc3-kong-automation
+  tag: main
 
 env:
   prefix: /kong_prefix/
