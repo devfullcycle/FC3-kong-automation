@@ -8,6 +8,8 @@ name: Docker
 on:
   push:
     branches: [ "main" ]
+    paths: 
+      - 'infra/kong-k8s/misc/docker/Dockerfile'
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
 
@@ -20,7 +22,7 @@ env:
 
 jobs:
   build:
-    if: ${{ github.event_name != 'pull_request' && contains(github.event.head_commit.modified, 'Dockerfile')}}
+    if: ${{ github.event_name != 'pull_request'}}
     runs-on: ubuntu-latest
     permissions:
       contents: read
