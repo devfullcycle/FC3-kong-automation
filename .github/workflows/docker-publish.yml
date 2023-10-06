@@ -20,7 +20,7 @@ env:
 
 jobs:
   build:
-
+    if: ${{ github.event_name != 'pull_request' && contains(github.event.head_commit, 'Dockerfile')}}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -31,7 +31,6 @@ jobs:
 
     steps:
       - name: Checkout repository
-        if: ${{ github.event_name != 'pull_request' && contains(github.event.head_commit, 'Dockerfile')}}
         uses: actions/checkout@v3
 
       # Install the cosign tool except on PR
