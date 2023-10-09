@@ -23,6 +23,7 @@ RUN set -ex \
     # Add Pluggable Compressors dependencies
     && luarocks install lua-ffi-zlib \
     && luarocks install penlight \
+    && luarocks install lua-resty-string \
     # Build kong-oidc from forked repo because is not keeping up with lua-resty-openidc
     && curl -sL https://raw.githubusercontent.com/revomatico/kong-oidc/v${KONG_PLUGIN_OIDC_VER}/kong-oidc-${KONG_PLUGIN_OIDC_VER}.rockspec | tee kong-oidc-${KONG_PLUGIN_OIDC_VER}.rockspec | \
     sed -E -e 's/(tag =)[^,]+/\1 "master"/' -e "s/(lua-resty-openidc ~>)[^\"]+/\1 ${LUA_RESTY_OIDC_VER}/" > kong-oidc-${KONG_PLUGIN_OIDC_VER}.rockspec \
