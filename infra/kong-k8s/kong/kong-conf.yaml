@@ -5,8 +5,8 @@
 # kubectl port-forward deploy/your-deployment-kong 8001:8001
 
 image:
-  repository: claudioed/kong-oidc-jwt
-  tag: latest
+  repository: ghcr.io/devfullcycle/fc3-kong-automation
+  tag: 1.0.0
 
 env:
   prefix: /kong_prefix/
@@ -43,3 +43,10 @@ autoscaling:
   minReplicas: 1
   maxReplicas: 10
   targetCPUUtilizationPercentage: 70
+
+# controller:
+#   ingressClass: "kong"
+#   ingress:
+#     enabled: true
+#     annotations:
+#       konghq.com/protocols: "http"
