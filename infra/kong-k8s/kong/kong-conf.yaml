@@ -28,6 +28,9 @@ postgresql:
   enabled: false
 
 ingressController:
+  image:
+    repository: kong/kubernetes-ingress-controller
+    tag: "2.12"
   enabled: true
   installCRDs: false
 
